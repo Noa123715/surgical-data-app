@@ -8,14 +8,20 @@ export default function Metrics(props) {
 
     async function getTheAllTheData(props) {
         try {
-            let response = await fetch(`http://localhost:8080/api/schedule/${teacherId}/${courseId}`);
+            let response = await fetch(`http://localhost:8080/api/dailyUtilization/${props.date}`);
             response = await response.json();
+            alert(response);
         }
         catch (err) {
             console.log(err);
         }
 
     }
+
+    useEffect(() => {
+        getTheAllTheData(props);
+    }, []);
+    
 
     return (
         <>
