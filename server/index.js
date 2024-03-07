@@ -16,7 +16,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.use("api/dailyUtilization", dailyUtilization);
+app.use("/api/dailyUtilization", dailyUtilization);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
