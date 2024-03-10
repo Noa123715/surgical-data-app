@@ -1,18 +1,33 @@
-import dailyUtilization from './dailyUtilizationService';
+import * as getData from './getData.js';
+import dailyUtilization from './dailyUtilizationService.js';
 
-function getPercentageOfUsagePerDay(date) {
+const february = 2;
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-    const dayInMonth = 31;
-    const year = string(new Date(date).getFullYear());
-    const month = string(new Date(date).getMonth());
+function isLeapYear(date) {
+    const year = new Date(date).getFullYear();
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+function getDayInMonth(date) {
+    let month = new Date(date).getMonth(); // return the number of the month -1
+    if (isLeapYear(date) && month + 1 === february) {
+        return daysInMonth[month] + 1;
+    }
+    return daysInMonth[month];
+}
+
+async function getPercentageOfUsagePerDay(date) {
+
+    const dayInMonth = getDayInMonth(date);
+    let year = (new Date(date).getFullYear()).toString();
+    let month = (new Date(date).getMonth() + 1).toString();
+    month = (month < 10) ? `0${month}` : `${month}`;
+
     const percentageOfUsagePerDay = [];
     for (let i = 0; i < dayInMonth; i++) {
-        let day;
-        if (i < 10) { day = `0${i}`; }
-        else { day = i; }
-        const percentageOfUsageForOneDay = dailyUtilization(`${day}-${month}-${year}`);
-        //percentageOfUsageForOneDay.every(percentage => percentage === 0);
-        // מה לעשות עם זה שלכל כל החודשים הם בדיוק 30 ימים?
+        let day = (i < 10) ? `0${i + 1}` : `${i + 1}`;
+        const percentageOfUsageForOneDay = await dailyUtilization(`${year}-${month}-${day}`);
         percentageOfUsagePerDay.push(percentageOfUsageForOneDay);
     }
     return percentageOfUsagePerDay;
@@ -20,6 +35,16 @@ function getPercentageOfUsagePerDay(date) {
 
 export default async function monthlyAverageUtilization(date) {
 
-    const percentageOfUsagePerDay = getPercentageOfUsagePerDay(date);
-    
+    const dayInMonth = getDayInMonth(date);
+    const percentageOfUsagePerDay = await getPercentageOfUsagePerDay(date);
+    const monthlyAverage = [];
+    for (let i = 0; i < percentageOfUsagePerDay[0].length; i++) {
+        const sum = 0;
+        for (let j = 0; j < percentageOfUsagePerDay.length; j++) {
+            sum = sum + percentageOfUsagePerDay[i][j];
+        }
+        monthlyAverage.push(sum / dayInMonth);
+    }
+
+    return monthlyAverage;
 }

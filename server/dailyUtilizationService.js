@@ -1,4 +1,4 @@
-import * as getData from "./getdata.js";
+import * as getData from "./getData.js";
 
 
 function getStartDate(surgerys) {
@@ -29,7 +29,7 @@ function getSurgeryPerRoom(daySurgery) {
     [], [], [], [], [], [], [], [], [], [],
     [], [], [], [], [], [], [], [], [], [],
     [], []];
-
+    
     daySurgery.forEach(surgery => {
         switch (surgery.room_id) {
             case "OR-1":
@@ -163,10 +163,9 @@ function getSurgeryPerRoom(daySurgery) {
     return surgeryPerRoom.data;
 } */
 
-
 export default async function dailyUtilization(date) {
-    const allData = await getData.readJson();
-    const daySurgery = allData.filter((surgery) => surgery.start.split('T')[0] == date);
+    const daySurgery = await getData.getDailySurgery(date);
+    console.log(daySurgery);
     const surgeryPerRoom = getSurgeryPerRoom(daySurgery);
     const usedTotalTimesPerRoom = surgeryPerRoom.map(room => {
         const a = totalTime(getStartDate(room), getEndDate(room));

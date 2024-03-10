@@ -1,9 +1,9 @@
 import express from 'express';
 const router = express.Router();
-import dailyUtilizationService from './dailyUtilizationService.js';
+import monthlyAverageUtilization from './monthlyAverageUtilization.js';
 
 router.get('/:date', async (req, res) => {
-    let result = await dailyUtilizationService(req.params.date);
+    let result = await monthlyAverageUtilization(req.params.date);
     res.json(result);
 });
 

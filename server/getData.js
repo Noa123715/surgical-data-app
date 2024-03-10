@@ -11,13 +11,12 @@ export async function readJson() {
         console.log(err);
     }
 }
-/* 
-export async function getStartDate() {
-    data = await readJson();
-    const starts = data.data.map(entry => entry.start);
-    return starts;
-}
 
+export async function getDailySurgery(date) {
+    const allData = await readJson();
+    return allData.filter((surgery) => surgery.start.split('T')[0] == date);
+}
+/*
 export async function getEndDate() {
     data = await readJson();
     const ends = data.data.map(entry => entry.end);

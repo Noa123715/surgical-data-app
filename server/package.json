@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "server for the Surgical data appllication",
+  "description": "server for surgical data application",
   "main": "index.js",
   "type": "module",
   "dependencies": {
