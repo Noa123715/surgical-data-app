@@ -1,4 +1,4 @@
-import * as getData from "./getData.js";
+/*import * as getData from "./getData.js";
 
 function getStaffPerRoom(surgerys) {
     let staff = surgerys.map(surgery => surgery.staff);
@@ -15,3 +15,4 @@ export default async function amountOfStaff(date) {
     });
     return staffPerRoom;
 }
+*/

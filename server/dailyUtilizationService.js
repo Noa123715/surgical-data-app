@@ -25,29 +25,34 @@ function totalTime(starts, ends) {
 }
 
 export default async function dailyUtilization(date) {
-    const daySurgery = await getData.getDailySurgery(date);
-    console.log(daySurgery);
-    const surgeryPerRoom = getData.getSurgeryPerRoom(daySurgery);
-    const usedTotalTimesPerRoom = surgeryPerRoom.map(room => {
-        const a = totalTime(getStartDate(room), getEndDate(room));
-        return a.reduce((sum, time) => sum + time, 0);
-    });
-    const earliestStarts = surgeryPerRoom.map(room => {
-        return room.reduce((earliest, current) => new Date(current.start).getTime() < new Date(earliest.start).getTime() ? current : earliest, room[0]);
-    });
-    const latestEnds = surgeryPerRoom.map(room => {
-        return room.reduce((latest, current) => new Date(current.end).getTime() > new Date(latest.end).getTime() ? current : latest, room[0]);
-    });
-    const allTimePerRoom = totalTime(getStartDate(earliestStarts), getEndDate(latestEnds));
-    const percentageOfUsage = [];
-    for (let i = 0; i < usedTotalTimesPerRoom.length; i++) {
-        if (allTimePerRoom[i] === 0) {
-            percentageOfUsage.push(0);
+    try {
+        const daySurgery = await getData.getDailySurgery(date);
+        if (daySurgery.length === 0) throw new Error("this day don't have surgery's data");
+        const surgeryPerRoom = getData.getSurgeryPerRoom(daySurgery);
+        const usedTotalTimesPerRoom = surgeryPerRoom.map(room => {
+            const a = totalTime(getStartDate(room), getEndDate(room));
+            return a.reduce((sum, time) => sum + time, 0);
+        });
+        const earliestStarts = surgeryPerRoom.map(room => {
+            return room.reduce((earliest, current) => new Date(current.start).getTime() < new Date(earliest.start).getTime() ? current : earliest, room[0]);
+        });
+        const latestEnds = surgeryPerRoom.map(room => {
+            return room.reduce((latest, current) => new Date(current.end).getTime() > new Date(latest.end).getTime() ? current : latest, room[0]);
+        });
+        const allTimePerRoom = totalTime(getStartDate(earliestStarts), getEndDate(latestEnds));
+        const percentageOfUsage = [];
+        for (let i = 0; i < usedTotalTimesPerRoom.length; i++) {
+            if (allTimePerRoom[i] === 0) {
+                percentageOfUsage.push(0);
+            }
+            else {
+                const percentage = usedTotalTimesPerRoom[i] / allTimePerRoom[i];
+                percentageOfUsage.push(percentage);
+            }
         }
-        else {
-            const percentage = usedTotalTimesPerRoom[i] / allTimePerRoom[i];
-            percentageOfUsage.push(percentage);
-        }
+        return percentageOfUsage;
+    } catch (error) {
+        console.log(error.message);
+        return null;
     }
-    return percentageOfUsage;
 }
