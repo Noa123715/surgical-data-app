@@ -3,7 +3,7 @@ import express, {json, urlencoded} from 'express';
 const app = express();
 const port = 8080;
 
-import monthlyAveragesForStaff from './routes.js';
+import metrics from './routes.js';
 
 app.use(json());
 app.use(urlencoded({extended: true, }));
@@ -16,7 +16,7 @@ const corsOptions = {
 }
 app.use(cors(corsOptions));
 
-app.use("/api/monthlyAveragesForStaff", monthlyAveragesForStaff);
+app.use("/api/getMetrics", metrics);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

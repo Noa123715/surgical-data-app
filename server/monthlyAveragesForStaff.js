@@ -25,5 +25,5 @@ export default async function monthlyAveragesForStaff(date) {
 
     const response = await getStaffPerDay(date);
     const monthlyAmountOfStaff = response.amountOfStaffPerDay.reduce((sum, value) => sum + value, 0);
-    return monthlyAmountOfStaff / response.amountOfDayInMonth;//להציג מספר ימים שחישבתי בפועל????
+    return monthlyAmountOfStaff / response.amountOfDayInMonth;
 }

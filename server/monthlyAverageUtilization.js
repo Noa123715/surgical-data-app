@@ -1,5 +1,5 @@
 import * as getData from './getData.js';
-import dailyUtilization from './dailyUtilizationService.js';
+import dailyUtilization from './dailyUtilization.js';
 
 const february = 2;
 
@@ -34,6 +34,5 @@ export default async function monthlyAverageUtilization(date) {
         }
         monthlyAverage.push(sum / response.amountOfDayInMonth);
     }
-    console.log(monthlyAverage);
-    return monthlyAverage;//להציג מספר ימים שחישבתי בפועל????
+    return monthlyAverage;
 }
