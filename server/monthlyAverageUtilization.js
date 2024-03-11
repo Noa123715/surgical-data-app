@@ -48,5 +48,5 @@ export default async function monthlyAverageUtilization(date) {
         monthlyAverage.push(sum / response.amountOfDayInMonth);
     }
     console.log(monthlyAverage);
-    return monthlyAverage;
+    return monthlyAverage;//להציג מספר ימים שחישבתי בפועל????
 }
