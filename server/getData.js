@@ -129,6 +129,21 @@ export function getSurgeryPerRoom(daySurgery) {
     return surgeryPerRoom;
 }
 
+const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+function isLeapYear(date) {
+    const year = new Date(date).getFullYear();
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+export function getDayInMonth(date) {
+    let month = new Date(date).getMonth(); // return the number of the month -1
+    if (isLeapYear(date) && month + 1 === february) {
+        return daysInMonth[month] + 1;
+    }
+    return daysInMonth[month];
+}
+
 /* 
 function getSurgeryPerRoom(daySurgery) {
     const surgeryPerRoom = { data: [], size: 0 }; // Initialize dynamic array
@@ -156,24 +171,4 @@ function getSurgeryPerRoom(daySurgery) {
 
     return surgeryPerRoom.data;
 } 
-*/
-
-/*
-export async function getEndDate() {
-    data = await readJson();
-    const ends = data.data.map(entry => entry.end);
-    return ends;
-}
-
-export async function getRoomId() {
-    data = await readJson();
-    const room_id = data.data.map(entry => entry.room_id);
-    return room_id;
-}
-
-export async function getStaff() {
-    data = await readJson();
-    const staff = data.data.map(entry => entry.staff);
-    return staff;
-}
 */

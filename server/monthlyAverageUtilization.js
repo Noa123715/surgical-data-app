@@ -1,24 +1,11 @@
+import * as getData from './getData.js';
 import dailyUtilization from './dailyUtilizationService.js';
 
 const february = 2;
-const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-function isLeapYear(date) {
-    const year = new Date(date).getFullYear();
-    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}
-
-function getDayInMonth(date) {
-    let month = new Date(date).getMonth(); // return the number of the month -1
-    if (isLeapYear(date) && month + 1 === february) {
-        return daysInMonth[month] + 1;
-    }
-    return daysInMonth[month];
-}
 
 async function getPercentageOfUsagePerDay(date) {
 
-    const dayInMonth = getDayInMonth(date);
+    const dayInMonth = getData.getDayInMonth(date);
     let year = (new Date(date).getFullYear()).toString();
     let month = (new Date(date).getMonth() + 1).toString();
     month = (month < 10) ? `0${month}` : `${month}`;
