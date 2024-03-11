@@ -8,7 +8,7 @@ export default async function metrics(date) {
     const utilizationAverage = await monthlyAverageUtilization(date);
     const amountStaff = await amountOfStaff(date);
     const staffAverage = await monthlyAveragesForStaff(date);
-
+    console.log(staffAverage);
     return {
         "dailyUtilization": daily_utilization,
         "utilizationAverage": utilizationAverage,
