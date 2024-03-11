@@ -22,11 +22,11 @@ export default function LandingPage(props) {
     }
 
     return (
-        <>
-            <h1>hello</h1>
-            <label htmlFor='date'>Please enter the date for which you want to receive information</label>
-            <input type="date" id="date" name="date" onChange={change} required />
-            <button onClick={toSubmit}>submit</button>
-        </>
+        <div className="landingPage">
+            <h1 className="item">Hello to Surgical Data 🏥</h1>
+            <label className="item" htmlFor='date'>Please enter the date for which you want to receive information</label>
+            <input className="item" type="date" id="date" name="date" onChange={change} required />
+            <button className="item" onClick={toSubmit}>submit</button>
+        </div>
     )
 }

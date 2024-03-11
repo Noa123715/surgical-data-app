@@ -26,11 +26,11 @@ export default function Metrics(props) {
 
     return (
         <>
-            <h1>{`Information for the date: ${date}`}</h1>
+            <h1 className="data"><u>{`Information for: ${date}`}</u></h1>
             <div>
                 <MyTable dailyUtilization={data.dailyUtilization} utilizationAverage={data.utilizationAverage}/>
-                <h3>{`Amount of staff for all the rooms: ${data.amountOfStaff}`}</h3>
-                <h3>{`Monthly average of staff for all the rooms: ${Math.floor(data.staffAverage)}`}</h3>
+                <h3 className="data">{`Amount of staff for all the rooms: ${data.amountOfStaff}`}</h3>
+                <h3 className="data">{`Monthly average of staff for all the rooms: ${Math.floor(data.staffAverage)}`}</h3>
             </div>
         </>
     )
