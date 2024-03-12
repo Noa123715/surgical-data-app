@@ -11,14 +11,14 @@ To run the application locally, follow these steps:
 2. Clone the repository from GitHub: 
     git clone https://github.com/Noa123715/surgical-data-app.git
 3. Install dependencies for both the client and server:
-    cd client
+    cd client/app
     npm install
-    cd ../server
+    cd ../../server/service
     npm install
 4. Start the backend server:
     node index.js
 5. Start the frontend application:
-    cd ../client
+    cd ../../client
     npm start
 6. If the browser does not open automatically, navigate to http://localhost:3000 to view the application.
 
