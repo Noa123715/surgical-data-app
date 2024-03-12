@@ -28,10 +28,16 @@ export default function Metrics(props) {
         <>
             <h1 className="data"><u>{`Information for: ${date}`}</u></h1>
             <div>
-                <MyTable dailyUtilization={data.dailyUtilization} utilizationAverage={data.utilizationAverage}/>
-                <h3 className="data">{`Amount of staff for all the rooms: ${data.amountOfStaff}`}</h3>
-                <h3 className="data">{`Monthly average of staff for all the rooms: ${Math.floor(data.staffAverage)}`}</h3>
+                {data.dailyUtilization && data.utilizationAverage && <MyTable dailyUtilization={data.dailyUtilization} utilizationAverage={data.utilizationAverage} />}
+                {data.amountOfStaff && <h3 className="data">{`Amount of staff for all the rooms: ${data.amountOfStaff}`}</h3>}
+                {data.staffAverage && <h3 className="data">{`Monthly average of staff for all the rooms: ${Math.floor(data.staffAverage)}`}</h3>}
             </div>
+            {!data.dailyUtilization &&
+                <h3 className="data">
+                    We are Sorry! <br/>
+                    There is no data available for this day.
+                </h3>
+            }
         </>
     )
 }
