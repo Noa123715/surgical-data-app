@@ -4,15 +4,28 @@ import amountOfStaff from './amountOfStaff.js';
 import monthlyAveragesForStaff from './monthlyAveragesForStaff.js';
 
 export default async function metrics(date) {
-    const daily_utilization = await dailyUtilization(date);
-    const utilizationAverage = await monthlyAverageUtilization(date);
-    const amountStaff = await amountOfStaff(date);
-    const staffAverage = await monthlyAveragesForStaff(date);
-    console.log(staffAverage);
-    return {
-        "dailyUtilization": daily_utilization,
-        "utilizationAverage": utilizationAverage,
-        "amountOfStaff": amountStaff,
-        "staffAverage": staffAverage
+    try {
+        const daily_utilization = await dailyUtilization(date);
+        if (!daily_utilization) throw new Error("There is no daily utilization data.");
+        const utilizationAverage = await monthlyAverageUtilization(date);
+        if (!utilizationAverage) throw new Error("There is no month utilization's Average data.");
+        const amountStaff = await amountOfStaff(date);
+        if (amountStaff === 0) throw new Error("There is no staff this day.");
+        const staffAverage = await monthlyAveragesForStaff(date);
+        if (staffAverage === 0) throw new Error("There is no month staff's Average data.");
+        return {
+            "dailyUtilization": daily_utilization,
+            "utilizationAverage": utilizationAverage,
+            "amountOfStaff": amountStaff,
+            "staffAverage": staffAverage
+        }
+    } catch (error) {
+        console.log(error.message);
+        return {
+            "dailyUtilization": null,
+            "utilizationAverage": null,
+            "amountOfStaff": 0,
+            "staffAverage": 0
+        }
     }
 }

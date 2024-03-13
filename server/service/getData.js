@@ -1,6 +1,7 @@
 import fs from 'fs';
 
 const filePath = 'operations_data.json';
+const february = 2;
 
 export async function readJson() {
     try {

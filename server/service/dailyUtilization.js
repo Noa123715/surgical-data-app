@@ -27,7 +27,7 @@ function totalTime(starts, ends) {
 export default async function dailyUtilization(date) {
     try {
         const daySurgery = await getData.getDailySurgery(date);
-        if (daySurgery.length === 0) throw new Error("this day don't have surgery's data");
+        if (daySurgery.length === 0) throw new Error("There is no surgery's data for this day.");
         const surgeryPerRoom = getData.getSurgeryPerRoom(daySurgery);
         const usedTotalTimesPerRoom = surgeryPerRoom.map(room => {
             const a = totalTime(getStartDate(room), getEndDate(room));
