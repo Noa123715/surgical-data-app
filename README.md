@@ -1,5 +1,5 @@
 # surgical-data-app
-Just before we begin...
+Just before we begin... <br/>
 I would like to express my gratitude to all the doctors, nurses, and hospital staff around the world for their dedicated work and for saving so many lives.
 
 # Application Overview
@@ -41,7 +41,8 @@ The backend server provides the following API endpoints:
 # Data Processing and Metrics Calculation
 The application processes surgical data to calculate various metrics. This includes aggregating data for daily room utilization, calculating average monthly utilization, and aggregating counts for nurses and anesthesiologists for each day along with their monthly averages.
 
-About the Developer
+<br/>
+<br/>
 The application was developed by Noa Abecassis in March 2024. This is the first version of the application.
-
+<br/>
 I hope you enjoy using my application and that it proves to be helpful to many people.
