@@ -24,13 +24,13 @@ export default function MyTable(props) {
                     <tr>
                         <th>Daily Utilization</th>
                         {props?.dailyUtilization?.map((value) => (
-                            <td>{Number.isInteger(value) ? value.toFixed(0) : value.toFixed(3)}</td>
+                            <td>{`${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2)} %`}</td>
                         ))}
                     </tr>
                     <tr>
                         <th>Utilization Average</th>
                         {props?.utilizationAverage?.map((value) => (
-                            <td>{Number.isInteger(value) ? value.toFixed(0) : value.toFixed(3)}</td>
+                            <td>{`${Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2)} %`}</td>
                         ))}
                     </tr>
                 </tbody>

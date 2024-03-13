@@ -46,7 +46,8 @@ export default async function dailyUtilization(date) {
                 percentageOfUsage.push(0);
             }
             else {
-                const percentage = usedTotalTimesPerRoom[i] / allTimePerRoom[i];
+                let percentage = usedTotalTimesPerRoom[i] / allTimePerRoom[i];
+                percentage = percentage * 100;
                 percentageOfUsage.push(percentage);
             }
         }
