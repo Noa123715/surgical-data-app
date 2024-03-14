@@ -12,7 +12,7 @@ test('message that this date dont have data', async ({ page }) => {
       return parseFloat(textContent);
     }
     return 0;
-  }));
+  }));// להוסיף בדיקה שזה מספרים שלמים
 
   for (const value of staffAmountValue) {
     expect(value).toBeGreaterThan(0);
