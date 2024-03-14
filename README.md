@@ -115,11 +115,11 @@ To run the tests, follow these steps:
 
 ## Screenshots
 - Entering the website:
-  <img src="https://github.com/noa123715/surgical-data-app/screenshots/landingPage.png"> <br><br>
-  - While downloading:
-  <img src="https://github.com/noa123715/surgical-data-app/screenshots/Metrics.png"><br><br>
-  - When the download have succeed:
-  <img src="https://github.com/noa123715/surgical-data-app/screenshots/noAvailableData.png"><br><br>
+  <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/landingPage.png"> <br><br>
+- The metrics data:
+  <img src="https://github.com/Noa123715/surgical-data-app/blob/main/screenshots/Metrics.png"><br><br>
+- The error message:
+  <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/noAvailableData.png"><br><br>
 
 <br/><br/>
 The application was developed by Noa Abecassis in March 2024. This is the first version of the application.
