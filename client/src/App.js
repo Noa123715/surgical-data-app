@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
+        {/* routes the page to the landing page */}
         <Main />
       </BrowserRouter>
     </div>

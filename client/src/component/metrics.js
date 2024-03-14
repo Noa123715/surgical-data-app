@@ -4,12 +4,16 @@ import MyTable from "./myTable.js";
 
 export default function Metrics(props) {
 
+    // assigning the date to the local variable to easy use it in the function
     const date = props.date;
     const [data, dataState] = useState([]);
     let Navigate = useNavigate();
 
     async function toReturn(e) {
         try {
+            // return to the landing page
+            e.preventDefault();
+            // reset the date to check it again in the landing page
             props.dateToInformation(null);
             Navigate('/landingPage');
         }
@@ -20,8 +24,10 @@ export default function Metrics(props) {
 
     async function getAllTheData(props) {
         try {
+            // send a request to get the data from the server
             let response = await fetch(`http://localhost:8080/api/getMetrics/${props.date}`);
             response = await response.json();
+            // assign the server's answer to the local variable
             dataState(response);
         }
         catch (err) {
@@ -30,6 +36,7 @@ export default function Metrics(props) {
 
     }
 
+    // make the function getAllTheData call immadiately when the component mounts
     useEffect(() => {
         getAllTheData(props);
     }, []);
@@ -47,6 +54,7 @@ export default function Metrics(props) {
                     </div>
                 }
             </div>
+            {/* if there no data available write it to the user */}
             {!data.dailyUtilization &&
                 <h3 className="data">
                     We are Sorry! <br />

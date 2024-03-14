@@ -5,6 +5,7 @@ export default function MyTable(props) {
 
     const [headers, headersState] = useState([]);
 
+    // make the headers for the table when the component mounts
     useEffect(() => {
         headersState(Array.from({ length: 32 }, (_, index) => `Room ${index + 1}`));
     }, []);
