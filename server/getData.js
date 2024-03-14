@@ -1,3 +1,8 @@
+/**
+ * Reads JSON data from a file.
+ *
+ * @returns The parsed JSON data.
+ */
 import fs from 'fs';
 
 const filePath = 'operations_data.json';
@@ -13,11 +18,23 @@ export async function readJson() {
     }
 }
 
+/**
+ * Retrieves surgery data for a specific date.
+ *
+ * @param date - The date for which to retrieve surgery data.
+ * @returns An array of surgery objects for the specified date.
+ */
 export async function getDailySurgery(date) {
     const allData = await readJson();
     return allData.filter((surgery) => surgery.start.split('T')[0] == date);
 }
 
+/**
+ * Groups surgery data by room.
+ *
+ * @param daySurgery - An array of surgery objects for a specific date.
+ * @returns An array containing subarrays of surgery objects grouped by room.
+ */
 export function getSurgeryPerRoom(daySurgery) {
     const surgeryPerRoom = [[], [], [], [], [], [], [], [], [], [],
     [], [], [], [], [], [], [], [], [], [],
@@ -130,13 +147,22 @@ export function getSurgeryPerRoom(daySurgery) {
     return surgeryPerRoom;
 }
 
+// days in month related to the month (Jenuary is first, Februsry sercond and so on)
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
+
 function isLeapYear(date) {
+    //return if the year is Leap or no - to know if February is 28 or 29 days
     const year = new Date(date).getFullYear();
     return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
 
+/**
+ * Calculates the number of days in a specific month.
+ *
+ * @param date - The date within the month for which to calculate the number of days.
+ * @returns The number of days in the month containing the specified date.
+ */
 export function getDayInMonth(date) {
     let month = new Date(date).getMonth(); // return the number of the month -1
     if (isLeapYear(date) && month + 1 === february) {
