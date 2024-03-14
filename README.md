@@ -14,7 +14,7 @@ To run the application locally, follow these steps:
 
 3. Install dependencies for both the client and server:
 
-    cd client
+    CD client
 
     npm install
 
