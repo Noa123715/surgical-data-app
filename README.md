@@ -76,7 +76,7 @@ The tests are written in Playwright using TypeScript.<br/>
 These tests serve as a scenario for the user interacting with the site and checking if everything works as planned. <br/>
 The tests will execute and provide feedback on whether the application is functioning correctly according to the specifications.
 
-# Running the Tests
+## Running the Tests
 To run the tests, follow these steps:
 
 - Install dependencies:
@@ -99,7 +99,7 @@ To run the tests, follow these steps:
     ``` 
 
 
-# Explanation of each test's role:
+## Explanation of each test's role:
 
 - amountOfStaff - Checks that when a date is entered, the number of staff for the day and the monthly average are greater than 0 and are whole numbers, as an operating room cannot function without staff and there are no partial staff members.
 
@@ -124,7 +124,7 @@ During the development of this application, several assumptions were made to cal
 
 - Total Time Calculation: The total time is calculated from the earliest documented activity in the room to the latest documented activity in the analysis room on the same day.
 
-## Screenshots
+# Screenshots
 - Entering the website:
   <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/landingPage.png"> <br><br>
 - The metrics data:
@@ -133,9 +133,11 @@ During the development of this application, several assumptions were made to cal
   <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/noAvailableData.png"><br><br>
 
 <br/><br/>
-The application was developed by Noa Abecassis in March 2024. This is the first version of the application.
+
+### The application was developed by Noa Abecassis in March 2024. This is the first version of the application.
+
 <br/>
 
-I hope you enjoy using my application and that it proves to be helpful to many people.
+### I hope you enjoy using my application and that it proves to be helpful to many people.
 
 # Enjoyable Use 😊
