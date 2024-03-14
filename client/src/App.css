@@ -48,10 +48,8 @@ button {
   background-color: #3498db;
   color: white;
   text-align: center;
-  text-decoration: none;
   border-radius: 5px;
   border: 2px solid #3498db;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
@@ -63,4 +61,10 @@ button:hover {
 
 input {
   padding: 10px;
+}
+
+.return {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }

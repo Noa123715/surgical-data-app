@@ -13,7 +13,12 @@ export default function LandingPage(props) {
     }
 
     async function toSubmit(e) {
+        e.preventDefault();
         try {
+            if (props.date === null) {
+                alert('Please enter the date for which you want to receive information');
+                return;
+            }
             Navigate('/metrics');
         }
         catch (err) {

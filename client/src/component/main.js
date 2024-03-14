@@ -5,7 +5,7 @@ import Metrics from './metrics.js';
 
 export default function Main() {
 
-    const [date, dateState] = useState();
+    const [date, dateState] = useState(null);
     const dateToInformation = (value) => {
         dateState(value)
     }
@@ -14,9 +14,9 @@ export default function Main() {
         <>
             <Routes>
                 {/* <Route exact element={<Error />} path='*' /> */}
-                <Route exact element={<LandingPage dateToInformation={dateToInformation} />} path='/' />
-                <Route exact element={<LandingPage dateToInformation={dateToInformation} />} path='/landingPage' />
-                <Route exact element={<Metrics date={date} />} path='/metrics/*' />
+                <Route exact element={<LandingPage dateToInformation={dateToInformation} date={date}/>} path='/' />
+                <Route exact element={<LandingPage dateToInformation={dateToInformation} date={date}/>} path='/landingPage' />
+                <Route exact element={<Metrics dateToInformation={dateToInformation} date={date} />} path='/metrics/*' />
             </Routes>
         </>
     )

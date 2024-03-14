@@ -9,12 +9,19 @@ This project is a full-stack web application designed to process and display sur
 To run the application locally, follow these steps:
 1. Open your Command Line. (1. Press WinKey + R, 2. Type cmd, 3. Press Enter)
 2. Clone the repository from GitHub: 
+
     git clone https://github.com/Noa123715/surgical-data-app.git
+
 3. Install dependencies for both the client and server:
+
     cd client
+
     npm install
+
     cd ../server
+
     npm install
+
 4. Start the backend server:
     node index.js &
 5. Start the frontend application:
