@@ -1,4 +1,4 @@
-# surgical-data-app
+# Surgical Data Application 🏥
 Just before we begin... <br/>
 I would like to express my gratitude to all the doctors, nurses, and hospital staff around the world for their dedicated work and for saving so many lives.
 
@@ -81,7 +81,7 @@ To run the tests, follow these steps:
 
 - Install dependencies:
 
-    In the terminal write this command:
+    In the terminal write this command: (from the previous step)
 
     ```bash
     cd ../test
@@ -95,7 +95,7 @@ To run the tests, follow these steps:
 
 - Run the test: 
     ```bash
-    npx playwright test --grep "[ change it with the file's name ]"
+    npx playwright test --grep "< change it with the file's name >"
     ``` 
 
 
@@ -113,6 +113,17 @@ To run the tests, follow these steps:
 
 - returnToLandingPage - Verifies that the "return to choose another date" button works correctly.
 
+# Assumptions
+During the development of this application, several assumptions were made to calculate the metrics accurately:
+
+- Active Days Calculation: Since there is no information available for every day in the month, only active days are considered for calculating the monthly average.
+
+- Uniform Staff Categories: There are no distinctions between team members (e.g., nurses, analysts), so the calculation is based on the total team without specific categorization.
+
+- Integer Values: Since there are no partial team members, the final calculation of the daily team size or the monthly average team size is rounded down.
+
+- Total Time Calculation: The total time is calculated from the earliest documented activity in the room to the latest documented activity in the analysis room on the same day.
+
 ## Screenshots
 - Entering the website:
   <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/landingPage.png"> <br><br>
@@ -125,4 +136,6 @@ To run the tests, follow these steps:
 The application was developed by Noa Abecassis in March 2024. This is the first version of the application.
 <br/>
 
-# I hope you enjoy using my application and that it proves to be helpful to many people.
+I hope you enjoy using my application and that it proves to be helpful to many people.
+
+# Enjoyable Use 😊
