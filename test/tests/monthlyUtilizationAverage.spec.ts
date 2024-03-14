@@ -1,7 +1,16 @@
+/**
+ * This test navigates to a local webpage, enters a date, submits a form, and checks for the presence of a table with monthly average utilization.
+ * If the table exists, it verifies that the data is displayed and within the range of 0 to 100%.
+ *
+ * @param page - The Playwright page to interact with.
+ */
 import { test, expect } from '@playwright/test';
 
-test('Table is displayed with daily utilization', async ({ page }) => {
+test('Table is displayed with monthly average utilization', async ({ page }) => {
+  // Navigate to the local webpage
   await page.goto('http://localhost:3000/');
+
+  // Fill in a date and submit the form
   await page.getByLabel('Please enter the date for').fill('2023-12-30');
   await page.getByRole('button', { name: 'submit' }).click();
 
