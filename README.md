@@ -124,6 +124,13 @@ During the development of this application, several assumptions were made to cal
 
 - Total Time Calculation: The total time is calculated from the earliest documented activity in the room to the latest documented activity in the analysis room on the same day.
 
+# Challenges
+
+- The system includes a server that performs extensive calculations before returning a response to the client. This process can be time-consuming to implement, especially when requirements are not clear until the end.
+
+- Playwright is a relatively new framework (introduced in 2020) with limited available information on the internet, especially regarding potential errors.
+
+
 # Screenshots
 - Entering the website:
   <img src="https://github.com/noa123715/surgical-data-app/blob/main/screenshots/landingPage.png"> <br><br>
