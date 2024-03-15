@@ -126,7 +126,7 @@ During the development of this application, several assumptions were made to cal
 
 # Challenges
 
-- The system includes a server that performs extensive calculations before returning a response to the client. This process can be time-consuming to implement, especially when requirements are not clear until the end.
+- The system includes a server that performs extensive calculations before returning a response to the client. This process can be time-consuming to implement, especially when requirements are not very clearly.
 
 - Playwright is a relatively new framework (introduced in 2020) with limited available information on the internet, especially regarding potential errors.
 
